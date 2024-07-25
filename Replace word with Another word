@@ -1,0 +1,24 @@
+
+%{
+#include <stdio.h>
+%}
+
+ID  "oldword"
+NEW "newword"
+
+%%
+
+{ID} {
+    printf("%s", NEW);
+}
+
+\n  printf("\n");
+
+.   printf("%c", yytext[0]);
+
+%%
+
+int main() {
+    yylex();
+    return 0;
+}
