@@ -1,0 +1,16 @@
+%{
+#include <stdio.h>
+%}
+
+CAPITAL [A-Z]
+
+%%
+
+{CAPITAL} printf("Capital letter: %c\n", yytext[0]);
+
+%%
+
+int main() {
+    yylex();
+    return 0;
+}
